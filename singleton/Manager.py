@@ -1,17 +1,14 @@
-from CompanyStock import StockManager, Stock
-# Crearea unei instanțe a clasei Singleton
-stock_manager = StockManager()
+from AgencyManager import AgencyManager, RealEstate
 
-# Adăugarea câtorva stocuri în instanța clasei Singleton
-stock_manager.add_stock(Stock("Apple Inc.", 100, 150.0))
-stock_manager.add_stock(Stock("Microsoft Corporation", 50, 200.0))
-stock_manager.add_stock(Stock("Amazon.com, Inc.", 75, 300.0))
+agency_manager = AgencyManager.get_instance()
 
-# Eliminarea unui stoc din instanța clasei Singleton
-microsoft_stock = stock_manager.get_stock("Microsoft Corporation")
-stock_manager.remove_stock(microsoft_stock)
+agency_manager.add_real_estate(RealEstate("str. Bucuresti 49", 122, 149000))
+agency_manager.add_real_estate(RealEstate("str. Stefan cel Mare 55", 67, 102500))
+agency_manager.add_real_estate(RealEstate("str. Liviu Deleanu 13", 87, 89000))
 
-# Afișarea informațiilor despre stocul rămas (fără Microsoft)
-print("Informații stocuri:")
-for stock in stock_manager.stock_data:
-    print(stock.name, stock.quantity, stock.price)
+str_bucuresti = agency_manager.get_real_estate("str. Bucuresti 49")
+agency_manager.remove_real_estate(str_bucuresti)
+
+print("informatii bunuri imobile:")
+for data in agency_manager.data:
+    print(data.address, data.surface, data.price)
