@@ -1,34 +1,36 @@
-class PizzaBuilder:
+class AdCreator:
     def __init__(self):
-        self.pizza = Pizza()
+        self.ad = Ad()
 
-    def set_size(self, size):
-        self.pizza.size = size
+    def set_sector(self, sector):
+        self.ad.sector = sector
 
-    def set_dough(self, dough):
-        self.pizza.dough = dough
+    def set_category(self, category):
+        self.ad.category = category
 
-    def set_sauce(self, sauce):
-        self.pizza.sauce = sauce
+    def set_area(self, area):
+        self.ad.area = area
 
-    def set_cheese(self, cheese):
-        self.pizza.cheese = cheese
+    def set_bedrooms(self, bedrooms):
+        self.ad.bedrooms = bedrooms
 
-    def add_toppings(self, topping):
-        self.pizza.toppings.append(topping)
+    def set_baths(self, baths):
+        self.ad.baths = baths
 
-    def get_pizza(self):
-        return self.pizza
+    def get_ad(self):
+        return self.ad
 
 
-class Pizza:
+class Ad:
     def __init__(self):
-        self.size = None
-        self.dough = None
-        self.sauce = None
-        self.cheese = None
-        self.toppings = []
+        self.sector = None
+        self.category = None
+        self.area = None
+        self.bedrooms = None
+        self.baths = []
 
     def __str__(self):
-        return f"{self.size}-inch {self.dough} crust pizza with {self.sauce} sauce, {self.cheese} cheese, and {', '.join(self.toppings)}."
+        return f"Sunt in cautare de o/un {self.category} in sectorul {self.sector},\n\
+care detine {self.bedrooms} dormitoare si o suprafata de {self.area} m2.\n\
+Pe langa asta sa detina {self.baths} blocuri sanitare!"
 

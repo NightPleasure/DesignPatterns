@@ -1,11 +1,11 @@
-from AdCreator import PizzaBuilder
+from AdCreator import AdCreator
 
-pizza_builder = PizzaBuilder()
-pizza_builder.set_size(12)
-pizza_builder.set_dough("thin")
-pizza_builder.set_sauce("tomato")
-pizza_builder.set_cheese("mozzarella")
-pizza_builder.add_toppings("pepperoni")
-pizza_builder.add_toppings("mushrooms")
-pizza = pizza_builder.get_pizza()
-print(pizza)
+ad = AdCreator()
+ad.set_sector("Ciocana")
+ad.set_category("Apartament")
+ad.set_area(72)
+ad.set_bedrooms(2)
+ad.set_baths(2)
+
+print(ad.get_ad())
+
