@@ -8,4 +8,3 @@ ad.set_bedrooms(2)
 ad.set_baths(2)
 
 print(ad.get_ad())
-

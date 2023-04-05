@@ -27,7 +27,7 @@ class Ad:
         self.category = None
         self.area = None
         self.bedrooms = None
-        self.baths = []
+        self.baths = None
 
     def __str__(self):
         return f"Sunt in cautare de o/un {self.category} in sectorul {self.sector},\n\
