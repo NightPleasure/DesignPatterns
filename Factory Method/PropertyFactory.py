@@ -1,36 +1,31 @@
 from abc import ABC, abstractmethod
 
-class Property(ABC):
+
+class IPropertyFactory(ABC):
     @abstractmethod
-    def get_description(self):
+    def create_property(self, address, rooms, baths):
         pass
 
-class House(Property):
-    def get_description(self):
-        return "This is a beautiful house."
 
-class Apartment(Property):
-    def get_description(self):
-        return "This is a cozy apartment."
+class ApartmentFactory(IPropertyFactory):
+    def create_property(self, address, rooms, baths):
+        return Apartment(address, rooms, baths)
 
-class PropertyFactory(ABC):
-    @abstractmethod
-    def create_property(self):
-        pass
 
-class HouseFactory(PropertyFactory):
-    def create_property(self):
-        return House()
+class HouseFactory(IPropertyFactory):
+    def create_property(self, address, rooms, baths):
+        return House(address, rooms, baths)
 
-class ApartmentFactory(PropertyFactory):
-    def create_property(self):
-        return Apartment()
 
-if __name__ == "__main__":
-    house_factory = HouseFactory()
-    house = house_factory.create_property()
-    print(house.get_description())
+class Apartment:
+    def __init__(self, address, rooms, baths):
+        self.address = address
+        self.rooms = rooms
+        self.baths = baths
 
-    apartment_factory = ApartmentFactory()
-    apartment = apartment_factory.create_property()
-    print(apartment.get_description())
+
+class House:
+    def __init__(self, address, rooms, baths):
+        self.address = address
+        self.rooms = rooms
+        self.baths = baths

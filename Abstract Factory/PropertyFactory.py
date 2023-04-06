@@ -1,31 +1,33 @@
 from abc import ABC, abstractmethod
 
 
-class PropertyFactory(ABC):
+class Property(ABC):
     @abstractmethod
-    def create_property(self, address, num_rooms, num_bathrooms):
+    def get_description(self):
         pass
 
 
-class ApartmentFactory(PropertyFactory):
-    def create_property(self, address, num_rooms, num_bathrooms):
-        return Apartment(address, num_rooms, num_bathrooms)
+class House(Property):
+    def get_description(self):
+        return "Aceasta casa contine 5 dormitoare, 2 blocuri sanitare si terasa"
+
+
+class Apartment(Property):
+    def get_description(self):
+        return "Acest apartament are o suprafata de 68 m2, 2 dormitoare si 1 bloc sanitar"
+
+
+class PropertyFactory(ABC):
+    @abstractmethod
+    def create_property(self):
+        pass
 
 
 class HouseFactory(PropertyFactory):
-    def create_property(self, address, num_rooms, num_bathrooms):
-        return House(address, num_rooms, num_bathrooms)
+    def create_property(self):
+        return House()
 
 
-class Apartment:
-    def __init__(self, address, num_rooms, num_bathrooms):
-        self.address = address
-        self.num_rooms = num_rooms
-        self.num_bathrooms = num_bathrooms
-
-
-class House:
-    def __init__(self, address, num_rooms, num_bathrooms):
-        self.address = address
-        self.num_rooms = num_rooms
-        self.num_bathrooms = num_bathrooms
+class ApartmentFactory(PropertyFactory):
+    def create_property(self):
+        return Apartment()

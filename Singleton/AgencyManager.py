@@ -7,12 +7,12 @@ class RealEstate:
 
 class AgencyManager:
     _instance = None
+    data = []
 
     @staticmethod
     def get_instance():
         if AgencyManager._instance is None:
             AgencyManager._instance = AgencyManager()
-            AgencyManager._instance.data = []
         return AgencyManager._instance
 
     def add_real_estate(self, real_estate):
